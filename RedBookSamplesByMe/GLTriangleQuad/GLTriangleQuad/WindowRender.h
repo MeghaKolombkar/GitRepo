@@ -17,11 +17,15 @@ public:
 	static LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 };
 
+//Class is used to render 
 class Renderer
 {
-	HGLRC m_hglRC;
+	HGLRC m_hRC;
 	HDC m_hDC;
 public: 
+	Renderer() :m_hDC(NULL), m_hRC(NULL){}
+	~Renderer(){}
 	void initGL(HWND);
 	void render();
+	HDC getDC() const;
 };
